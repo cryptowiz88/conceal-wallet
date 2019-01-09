@@ -30,6 +30,7 @@
 using namespace WalletGui;
 
 int main(int argc, char* argv[]) {
+  QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QApplication app(argc, argv);
   app.setApplicationName("Conceal-GUI");
   app.setApplicationVersion(Settings::instance().getVersion());
@@ -38,9 +39,6 @@ int main(int argc, char* argv[]) {
   #ifndef Q_OS_MAC
     QApplication::setStyle(QStyleFactory::create("Fusion"));
   #endif
-  
-  QGuiApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
-
 
   CommandLineParser cmdLineParser(nullptr);
   Settings::instance().setCommandLineParser(&cmdLineParser);
